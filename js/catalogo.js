@@ -90,11 +90,11 @@ const catalogo = {
         sabores: ["Uva", "Guayaba", "Mango", "Manzana", "Fresa", "Durazno"]},
         chicharron: {
         titulo: "CHICHARRÓN PREPARADO",
-        precio: 50
+        precio: 35
     },
     dorilocos: {
         titulo: "SELECCIONA TUS DORITOS / BOTANA",
-        precio: 55,
+        precio: 45,
         sabores: ["Nacho (Rojos)", "Flaming Hot", "Incógnita", "Diablo"]
     },
     maruchan: {
