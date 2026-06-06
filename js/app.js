@@ -766,7 +766,7 @@ function mostrarResumenFinal(resumen) {
 }
 function enviarWhatsapp(resumen) {
 
-    const numeroNegocio = "7224558514";
+    const numeroNegocio = "7225560967";
 
     const mensaje = encodeURIComponent(resumen);
 
