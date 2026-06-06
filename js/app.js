@@ -25,7 +25,22 @@ function iniciarPedido() {
 
     catalogo.productos.forEach(prod => {
         const btn = document.createElement("button");
-        btn.textContent = prod;
+
+// Asignamos un icono/imagen dependiendo de qué producto sea
+let icono = "✨"; 
+if (prod === "Crepas") icono = "🥞";
+if (prod === "Waffles") icono = "🧇";
+if (prod === "Frappé") icono = "🥤";
+if (prod === "Papas a la francesa") icono = "🍟";
+if (prod === "Gomyboing") icono = "🧋";
+if (prod === "Chicharrón preparado") icono = "🥓";
+if (prod === "Café") icono = "☕";
+if (prod === "Maruchan") icono = "🍜";
+if (prod === "Dorilocos") icono = "🍿";
+if (prod === "Otros") icono = "⭐️";
+
+// Juntamos el icono y el nombre del producto
+btn.textContent = `${icono} ${prod}`;
         btn.onclick = () => {
             if (prod === "Crepas") {
                 pedidoActual = { nombre: "Crepa", total: 0, ingredientes: [] };
@@ -329,8 +344,7 @@ function renderCarrito() {
 
         div.appendChild(btnFinalizar);
     }
-}            iniciarPedido(); 
-                }
+}
 
                 iniciarPedido();
     // --- FLUJO COMIDA RÁPIDA (CORREGIDO) ---
