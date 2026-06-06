@@ -690,54 +690,44 @@ function generarResumenPedido() {
 
     let total = 0;
 
-    let resumen = `
-CLIENTE
-Nombre: ${nombre}
-Teléfono: ${telefono}
-Dirección: ${direccion}
+    let resumen = `🍿 *NUEVO PEDIDO: Caprichitos Campos* 🍿\n
+*CLIENTE*
+👤 Nombre: ${nombre}
+📞 Teléfono: ${telefono}
+📍 Dirección: ${direccion}
 `;
 
     // Agregar ubicación si existe
     if (ubicacionCliente) {
-        resumen += `
-Ubicación GPS:
-${ubicacionCliente}
-`;
+        resumen += `🗺️ Ubicación GPS:\n${ubicacionCliente}\n`;
     }
 
-    resumen += `
-
-PEDIDO:
-`;
+    resumen += `\n--------------------------\n🛍️ *PEDIDO:*\n`;
 
     carrito.forEach((item, i) => {
+        // 🚀 Aseguramos que tenga cantidad válida
+        const cantidad = item.cantidad || 1;
 
-        total += item.total;
+        // 🚀 Multiplicamos el costo por la cantidad elegida
+        const subtotalProducto = item.total * cantidad;
+        total += subtotalProducto;
 
-        resumen += `
-${i + 1}. ${item.nombre}
-${item.especialidad || ""}
-${item.tamano || ""}
-Precio: $${item.total}
-`;
+        // 🚀 Armamos el texto mostrando la cantidad al inicio (Ej: 2x Crepa Especialidad)
+        resumen += `\n*${cantidad}x* ${item.nombre} ${item.especialidad || ""} ${item.tamano || ""}
+Subtotal: *$${subtotalProducto}*\n`;
 
         if (item.ingredientes && item.ingredientes.length > 0) {
-            resumen += `Detalles: ${item.ingredientes.join(", ")}\n`;
+            resumen += `   _Detalles: ${item.ingredientes.join(", ")}_\n`;
         }
-
-        resumen += "\n";
     });
 
-    resumen += `
-TOTAL: $${total}
-`;
+    resumen += `\n--------------------------\n💰 *TOTAL A PAGAR: $${total}*`;
 
     // Solo para depuración (puedes quitarlo después)
     console.log("Ubicación guardada:", ubicacionCliente);
 
     mostrarResumenFinal(resumen);
 }
-
 function mostrarResumenFinal(resumen) {
 
     contenido.innerHTML = `
