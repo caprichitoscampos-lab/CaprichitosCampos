@@ -23,7 +23,7 @@ const catalogo = {
             { nombre: "Carnes Frias", precio: 50 },
             { nombre: "3 Quesos", precio: 40 }
         ],
-        frutas: ["Fresa", "Plátano", "Mango", "Kiwi", "Durazno", "Piña", "Cereza"],
+        frutas: ["Plátano", "Durazno", "Piña", "Cereza"],
         untables: ["Nutella", "Philadelphia", "Cajeta", "Lechera", "Mermelada de Fresa", "Crema pastelera"],
         toppings: ["Chispas de chocolate", "Chispas de colores","Nuez", "Oreo", "Coco rallado", "Hershys Chocolate", "Hershys Fresa", "Maple", "Maple chicle", "Lunetas", "Bombón"],
         helados: ["Vainilla", "Chocolate", "Fresa", "Napolitano"]
@@ -38,7 +38,7 @@ const catalogo = {
         titulo: "PAPAS A LA FRANCESA Y COMIDA RÁPIDA",
         opciones: [
             { nombre: "Papas a la francesa", precio: 45 },
-            { nombre: "Salchipulpos", precio: 45 },
+            { nombre: "Salchipulpos", precio: 35 },
             { nombre: "Salchipapas", precio: 75},
             { nombre: "Hot Dog", precio: 35 },
             { nombre: "Hamburguesa", precio: 0 }, // El precio se define en 'tipos'
@@ -75,10 +75,9 @@ const catalogo = {
         { nombre: "Oreo", precio: 55 },
         { nombre: "Nutella", precio: 55 },
         // Grupo $50
-        { nombre: "Picafresa", precio: 50 },
         { nombre: "Ice de Cereza", precio: 50 },
         { nombre: "Ice de Mora Azul", precio: 50 },
-        { nombre: "Mango con Chamoy", precio: 50 },
+        
         // Grupo $60
         { nombre: "Bubulubu", precio: 60 },
         { nombre: "Ferrero", precio: 60 },
@@ -87,7 +86,7 @@ const catalogo = {
     gomyboing: {
         titulo: "PREPARA TU GOMYBOING",
         precio: 35, // Precio general
-        sabores: ["Uva", "Guayaba", "Mango", "Manzana", "Fresa", "Durazno"]},
+        sabores: ["Ice Mora", "Ice cereza"]},
         chicharron: {
         titulo: "CHICHARRÓN PREPARADO",
         precio: 35
@@ -95,18 +94,18 @@ const catalogo = {
     dorilocos: {
         titulo: "SELECCIONA TUS DORITOS / BOTANA",
         precio: 45,
-        sabores: ["Nacho (Rojos)", "Flaming Hot", "Incógnita", "Diablo"]
+        sabores: ["Nacho (Rojos)"]
     },
     maruchan: {
         titulo: "SABOR DE LA MARUCHAN",
-        precio: 35,
+        precio: 25,
         sabores: ["Camarón Limón y Chile", "Camarón con Chile Habanero", "Pollo", "Carne de Res"]
     },
 
     cafe: {
         titulo: "SELECCIONA TU CAFÉ",
-        precio: 25,
-        sabores: ["Americano", "Capuchino", "Moka", "Olla"]
+        precio: 30,
+        sabores: ["Clásico", "Chocolate", "Moka", "Vainilla"]
     },
 
 };
