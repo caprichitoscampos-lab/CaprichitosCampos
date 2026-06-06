@@ -243,7 +243,7 @@ function renderCarrito() {
         // Contenedor para el texto del producto
         const spanTexto = document.createElement("span");
         spanTexto.style.flexGrow = "1";
-        spanTexto.innerHTML = `<b>${i+1}. ${item.nombre} ${item.tamano || ""} ${item.especialidad || ""}</b> - $${subtotalProducto} ${notas}`;
+        spanTexto.innerHTML = `<b>${i+1}. ${item.nombre} ${item.tamano || ""} ${item.especialidad || ""}</b> - $${subtotalProducto} ${notes = notas}`;
 
         // Contenedor para los botoncitos de cantidad (+ / -)
         const divCantidad = document.createElement("div");
@@ -264,7 +264,11 @@ function renderCarrito() {
         btnMenos.onclick = () => {
             if (item.cantidad > 1) {
                 item.cantidad--;
-                iniciarPedido(); 
+                // 🚀 CORRECCIÓN: Volvemos a pintar solo el carrito para actualizar la cuenta
+                // sin alterar los botones de arriba
+                const anteriorDiv = document.querySelector(".carrito-visual");
+                if(anteriorDiv) anteriorDiv.remove();
+                renderCarrito(); 
             } else {
                 if(confirm("¿Seguro que quieres eliminar este producto?")) {
                     eliminarDelCarrito(i);
@@ -289,7 +293,10 @@ function renderCarrito() {
         btnMas.style.fontWeight = "bold";
         btnMas.onclick = () => {
             item.cantidad++;
-            iniciarPedido(); 
+            // 🚀 CORRECCIÓN: Volvemos a pintar solo el carrito para actualizar la cuenta
+            const anteriorDiv = document.querySelector(".carrito-visual");
+            if(anteriorDiv) anteriorDiv.remove();
+            renderCarrito(); 
         };
 
         divCantidad.appendChild(btnMenos);
@@ -345,7 +352,6 @@ function renderCarrito() {
         div.appendChild(btnFinalizar);
     }
 }
-
                 iniciarPedido();
     // --- FLUJO COMIDA RÁPIDA (CORREGIDO) ---
 
@@ -798,4 +804,12 @@ estado.innerHTML =
         }
 
     );
+}
+// 🚀 AGREGA ESTA FUNCIÓN AL FINAL DE TU ARCHIVO APP.JS
+function eliminarDelCarrito(indice) {
+    // Eliminamos el producto de la lista según su posición
+    carrito.splice(indice, 1);
+    
+    // Refrescamos todo el menú principal para limpiar el diseño
+    iniciarPedido(); 
 }
