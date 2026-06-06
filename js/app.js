@@ -208,11 +208,18 @@ function renderCarrito() {
     }
 
     carrito.forEach((item, i) => {
-        total += item.total;
+        // Si el producto no tiene cantidad guardada, le ponemos 1 por defecto
+        if (!item.cantidad) item.cantidad = 1;
+
+        // Multiplicamos el costo del producto por la cantidad que lleva
+        const subtotalProducto = item.total * item.cantidad;
+        total += subtotalProducto;
+
         const p = document.createElement("p");
         p.style.display = "flex";
         p.style.justifyContent = "space-between";
         p.style.alignItems = "center";
+        p.style.gap = "10px";
 
         const notas = item.ingredientes.length > 0 
             ? `<br><small style="color: #666;">(${item.ingredientes.join(", ")})</small>` 
@@ -220,13 +227,65 @@ function renderCarrito() {
 
         // Contenedor para el texto del producto
         const spanTexto = document.createElement("span");
-        spanTexto.innerHTML = `<b>${i+1}. ${item.nombre} ${item.tamano || ""} ${item.especialidad || ""}</b> - $${item.total} ${notas}`;
+        spanTexto.style.flexGrow = "1";
+        spanTexto.innerHTML = `<b>${i+1}. ${item.nombre} ${item.tamano || ""} ${item.especialidad || ""}</b> - $${subtotalProducto} ${notas}`;
 
-        // Botón de eliminar
+        // Contenedor para los botoncitos de cantidad (+ / -)
+        const divCantidad = document.createElement("div");
+        divCantidad.className = "control-cantidad";
+        divCantidad.style.display = "flex";
+        divCantidad.style.alignItems = "center";
+        divCantidad.style.gap = "6px";
+
+        const btnMenos = document.createElement("button");
+        btnMenos.textContent = "-";
+        btnMenos.style.width = "26px";
+        btnMenos.style.height = "26px";
+        btnMenos.style.minHeight = "auto"; 
+        btnMenos.style.borderRadius = "50%";
+        btnMenos.style.border = "1px solid #ccc";
+        btnMenos.style.cursor = "pointer";
+        btnMenos.style.fontWeight = "bold";
+        btnMenos.onclick = () => {
+            if (item.cantidad > 1) {
+                item.cantidad--;
+                iniciarPedido(); 
+            } else {
+                if(confirm("¿Seguro que quieres eliminar este producto?")) {
+                    eliminarDelCarrito(i);
+                }
+            }
+        };
+
+        const spanCantNum = document.createElement("span");
+        spanCantNum.textContent = item.cantidad;
+        spanCantNum.style.fontWeight = "bold";
+        spanCantNum.style.minWidth = "15px";
+        spanCantNum.style.textAlign = "center";
+
+        const btnMas = document.createElement("button");
+        btnMas.textContent = "+";
+        btnMas.style.width = "26px";
+        btnMas.style.height = "26px";
+        btnMas.style.minHeight = "auto";
+        btnMas.style.borderRadius = "50%";
+        btnMas.style.border = "1px solid #ccc";
+        btnMas.style.cursor = "pointer";
+        btnMas.style.fontWeight = "bold";
+        btnMas.onclick = () => {
+            item.cantidad++;
+            iniciarPedido(); 
+        };
+
+        divCantidad.appendChild(btnMenos);
+        divCantidad.appendChild(spanCantNum);
+        divCantidad.appendChild(btnMas);
+
+        // Botón de eliminar original
         const btnEliminar = document.createElement("button");
         btnEliminar.textContent = "❌";
         btnEliminar.style.padding = "2px 8px";
-        btnEliminar.style.marginLeft = "10px";
+        btnEliminar.style.minHeight = "auto"; 
         btnEliminar.style.backgroundColor = "#ff4d4d";
         btnEliminar.style.color = "white";
         btnEliminar.style.border = "none";
@@ -240,39 +299,37 @@ function renderCarrito() {
         };
 
         p.appendChild(spanTexto);
+        p.appendChild(divCantidad); 
         p.appendChild(btnEliminar);
         div.appendChild(p);
     });
     
     const h2 = document.createElement("h2");
-        h2.textContent = `Total: $${total}`;
-            div.appendChild(h2);
-            contenido.appendChild(div);
+    h2.textContent = `Total: $${total}`;
+    div.appendChild(h2);
+    contenido.appendChild(div);
             
-            const tienePendientes = carrito.some(item => item.total === 0);
-                if (tienePendientes) {
-         const aviso = document.createElement("p");
-            aviso.innerHTML = "<small>⚠️ <i>Nota: El total podría cambiar dependiendo de los productos con 'Precio por revisar'.</i></small>";
-            aviso.style.color = "#d9534f"; // Un color rojo suave para llamar la atención
-            div.appendChild(aviso);
-            }
-            if (carrito.length > 0) {
-    const btnFinalizar = document.createElement("button");
-    btnFinalizar.textContent = "✅ Finalizar Pedido";
-    btnFinalizar.className = "btn-finalizar";
+    const tienePendientes = carrito.some(item => item.total === 0);
+    if (tienePendientes) {
+        const aviso = document.createElement("p");
+        aviso.innerHTML = "<small>⚠️ <i>Nota: El total podría cambiar dependiendo de los productos con 'Precio por revisar'.</i></small>";
+        aviso.style.color = "#d9534f"; 
+        div.appendChild(aviso);
+    }
 
-    btnFinalizar.onclick = () => {
-        mostrarFormularioCliente();
-    };
+    if (carrito.length > 0) {
+        const btnFinalizar = document.createElement("button");
+        btnFinalizar.textContent = "✅ Finalizar Pedido";
+        btnFinalizar.className = "btn-finalizar";
+        btnFinalizar.style.minHeight = "50px"; 
 
-    div.appendChild(btnFinalizar);
-}
-            }
-            function eliminarDelCarrito(indice) {
-            // El método splice quita elementos de un arreglo usando su posición (índice)
-            carrito.splice(indice, 1);
-            // Una vez eliminado, volvemos a dibujar el menú para que se actualice la lista visual
-            iniciarPedido(); 
+        btnFinalizar.onclick = () => {
+            mostrarFormularioCliente();
+        };
+
+        div.appendChild(btnFinalizar);
+    }
+}            iniciarPedido(); 
                 }
 
                 iniciarPedido();
