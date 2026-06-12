@@ -31,7 +31,7 @@ let icono = "✨";
 if (prod === "Crepas") icono = "🥞";
 if (prod === "Waffles") icono = "🧇";
 if (prod === "Frappé") icono = "🥤";
-if (prod === "Papas a la francesa") icono = "🍟";
+if (prod === "Papas a la francesa y Hamburguesas") icono = "🍟";
 if (prod === "Gomyboing") icono = "🧋";
 if (prod === "Chicharrón preparado") icono = "🥓";
 if (prod === "Café") icono = "☕";
@@ -58,7 +58,7 @@ btn.textContent = `${icono} ${prod}`;
                 historialPantallas = [iniciarPedido];
                 seleccionarEspecialidadDulce(); // Salto directo
              } 
-             else if (prod === "Papas a la francesa") {
+             else if (prod === "Papas a la francesa y Hamburguesas") {
                 iniciarComidaRapida();
                 }
                 else if (prod === "Frappé") {
