@@ -1,6 +1,6 @@
 const catalogo = {
     productos: [
-        "Crepas", "Waffles", "Frappé", "Papas a la francesa", 
+        "Crepas", "Waffles", "Frappé", "Papas a la francesa y Hamburguesas", 
         "Gomyboing", "Chicharrón preparado", "Café", 
         "Maruchan", "Dorilocos", "Otros"
     ],
