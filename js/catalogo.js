@@ -23,10 +23,10 @@ const catalogo = {
             { nombre: "Carnes Frias", precio: 50 },
             { nombre: "3 Quesos", precio: 40 }
         ],
-        frutas: ["Plátano", "Durazno", "Piña", "Cereza"],
+        frutas: ["Plátano", "Durazno", "Piña", "Cereza","Kiwi", "Fresa"],
         untables: ["Nutella", "Philadelphia", "Cajeta", "Lechera", "Mermelada de Fresa", "Crema pastelera"],
         toppings: ["Chispas de chocolate", "Chispas de colores","Nuez", "Oreo", "Coco rallado", "Hershys Chocolate", "Hershys Fresa", "Maple", "Maple chicle", "Lunetas", "Bombón"],
-        helados: ["Vainilla", "Chocolate", "Fresa", "Napolitano"]
+        helados: ["Fresa"]
     },
 
     waffles: {
@@ -86,7 +86,7 @@ const catalogo = {
     gomyboing: {
         titulo: "PREPARA TU GOMYBOING",
         precio: 35, // Precio general
-        sabores: ["Ice Mora", "Ice cereza"]},
+        sabores: ["Ice Mora", "Ice cereza", "Mango"]},
         chicharron: {
         titulo: "CHICHARRÓN PREPARADO",
         precio: 35
