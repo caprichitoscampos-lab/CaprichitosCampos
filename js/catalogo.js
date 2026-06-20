@@ -23,7 +23,7 @@ const catalogo = {
             { nombre: "Carnes Frias", precio: 50 },
             { nombre: "3 Quesos", precio: 40 }
         ],
-        frutas: ["Plátano", "Durazno", "Piña", "Cereza","Kiwi", "Fresa"],
+        frutas: ["Plátano", "Durazno", "Piña", "Cereza","Kiwi"],
         untables: ["Nutella", "Philadelphia", "Cajeta", "Lechera", "Mermelada de Fresa", "Crema pastelera"],
         toppings: ["Chispas de chocolate", "Chispas de colores","Nuez", "Oreo", "Coco rallado", "Hershys Chocolate", "Hershys Fresa", "Maple", "Maple chicle", "Lunetas", "Bombón"],
         helados: ["Fresa"]
@@ -41,6 +41,7 @@ const catalogo = {
             { nombre: "Salchipulpos", precio: 35 },
             { nombre: "Salchipapas", precio: 75},
             { nombre: "Hot Dog", precio: 35 },
+            { nombre: "Hot Dog especial", precio: 45}
             { nombre: "Hamburguesa", precio: 0 }, // El precio se define en 'tipos'
             { nombre: "Nuggets", precio: 35 },
             { nombre: "Banderilla", precio: 25 },
