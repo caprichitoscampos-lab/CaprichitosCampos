@@ -682,6 +682,13 @@ function mostrarFormularioCliente() {
     document.getElementById("btnEditarPedido").onclick = () => {
     iniciarPedido();
 };
+    const mensajeEnvio = totalActual < 200 
+        ? `<p style="color: #d9534f; font-weight: bold; margin-bottom: 15px;">
+            ⚠️ Tu orden es de $${totalActual}. Al ser menor a $200, se sumarán $30 de envío al finalizar.
+           </p>`
+        : `<p style="color: #28a745; font-weight: bold; margin-bottom: 15px;">
+            🎉 ¡Genial! Tu orden es de $${totalActual}. ¡Tu envío es GRATIS!
+           </p>`;
 }
 function generarResumenPedido() {
 
