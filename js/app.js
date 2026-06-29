@@ -689,7 +689,7 @@ function generarResumenPedido() {
     const telefono = document.getElementById("telefonoCliente").value;
     const direccion = document.getElementById("direccionCliente").value;
 
-    if (!nombre || !telefono || !direccion) {
+    if (!nombre || !telefono || !direccion || !ubicacionCliente) {
         alert("Completa todos los campos.");
         return;
     }
