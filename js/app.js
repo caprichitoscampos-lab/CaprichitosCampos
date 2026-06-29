@@ -643,45 +643,15 @@ function iniciarOtros() {
     finalizarProducto();
 }
 function mostrarFormularioCliente() {
-    contenido.innerHTML = `
-    <h2>Datos del Cliente</h2>
+    // 🚀 1. Calculamos el total actual del carrito antes de pintar la pantalla
+    let totalActual = 0;
+    carrito.forEach(item => {
+        const cantidad = item.cantidad || 1;
+        totalActual += (item.total * cantidad);
+    });
 
-    <label>Nombre:</label>
-    <input type="text" id="nombreCliente">
-
-    <label>Teléfono:</label>
-    <input type="tel" id="telefonoCliente">
-
-    <label>Dirección de referencia:</label>
-    <textarea id="direccionCliente"></textarea>
-
-    <br><br>
-
-    <button id="btnUbicacion">
-        📍 Compartir ubicación
-    </button>
-
-    <p id="estadoUbicacion"></p>
-
-    <br>
-
-<button id="btnCancelar">
-    ❌ Editar Carrito
-</button>
-    <button id="btnContinuar">
-        Continuar
-    </button>
-`;
-    document.getElementById("btnContinuar").onclick = generarResumenPedido;
-
-    document.getElementById("btnUbicacion").onclick =
-    obtenerUbicacion;
-    document.getElementById("btnCancelar").onclick = () => {
-        iniciarPedido();
-    };
-    document.getElementById("btnEditarPedido").onclick = () => {
-    iniciarPedido();
-};
+    // 🚀 2. Creamos el mensaje de envío según el total
+    // Si es menor a 200 muestra el aviso de $30, si es mayor o igual se queda vacío ""
     const mensajeEnvio = totalActual < 200 
         ? `<p style="color: #d9534f; font-weight: bold; margin-bottom: 15px;">
             ⚠️ Tu orden es de $${totalActual}. Al ser menor a $200, se sumarán $30 de envío al finalizar.
@@ -689,8 +659,46 @@ function mostrarFormularioCliente() {
         : `<p style="color: #28a745; font-weight: bold; margin-bottom: 15px;">
             🎉 ¡Genial! Tu orden es de $${totalActual}. ¡Tu envío es GRATIS!
            </p>`;
-}
-function generarResumenPedido() {
+
+    // 🚀 3. Inyectamos el HTML incluyendo la variable 'mensajeEnvio'
+    contenido.innerHTML = `
+        <h2>Datos del Cliente</h2>
+
+        <label>Nombre:</label>
+        <input type="text" id="nombreCliente">
+
+        <label>Teléfono:</label>
+        <input type="tel" id="telefonoCliente">
+
+        <label>Dirección de referencia:</label>
+        <textarea id="direccionCliente"></textarea>
+
+        <br><br>
+
+        <button id="btnUbicacion">
+            📍 Compartir ubicación
+        </button>
+
+        <p id="estadoUbicacion">${ubicacionCliente ? "✅ Ubicación ya guardada" : ""}</p>
+
+        <br>
+        
+        ${mensajeEnvio}
+
+        <button id="btnCancelar">
+            ❌ Editar Carrito
+        </button>
+        <button id="btnContinuar">
+            Continuar
+        </button>
+    `;
+
+    document.getElementById("btnContinuar").onclick = generarResumenPedido;
+    document.getElementById("btnUbicacion").onclick = obtenerUbicacion;
+    document.getElementById("btnCancelar").onclick = () => {
+        iniciarPedido();
+    };
+}function generarResumenPedido() {
 
     const nombre = document.getElementById("nombreCliente").value;
     const telefono = document.getElementById("telefonoCliente").value;
