@@ -25,7 +25,7 @@ const catalogo = {
         ],
         frutas: ["Plátano", "Durazno", "Piña", "Mango", "Fresa", "kiwi", "Cereza"],
         untables: ["Nutella", "Philadelphia", "Cajeta", "Lechera", "Mermelada de Fresa", "Crema pastelera"],
-        toppings: ["Chispas de chocolate", "Chispas de colores","Nuez", "Oreo", "Coco rallado", "Hershys Chocolate", "Hershys Fresa", "Maple", "Maple chicle", "Lunetas", "Bombón"],
+        toppings: ["Chispas de chocolate", "Chispas de colores", "Oreo", "Coco rallado", "Hershys Chocolate", "Hershys Fresa", "Maple", "Maple chicle", "Lunetas", "Bombón"],
         helados: ["Fresa"]
     },
 
