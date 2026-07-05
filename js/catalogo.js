@@ -43,7 +43,6 @@ const catalogo = {
             { nombre: "Hot Dog", precio: 35 },
             { nombre: "Hot Dog especial", precio: 45},
             { nombre: "Hamburguesa", precio: 0 }, // El precio se define en 'tipos'
-            { nombre: "Nuggets", precio: 35 },
             { nombre: "Banderilla", precio: 25 },
             { nombre: "Combo", precio: 0 }  // El precio se define en 'combos'
         ],
@@ -56,8 +55,8 @@ const catalogo = {
             { nombre: "Hamburguesa sencilla + papas", precio: 90 },
             { nombre: "Hamburguesa especial + papas", precio: 120 },
             { nombre: "Hamburguesa doble + papas", precio: 160 },
-            { nombre: "Hot Dog + papas", precio: 70 },
-            { nombre: "Nuggets + papas", precio: 70 }
+            { nombre: "Hot Dog + papas", precio: 70 }
+            
         ]
     },
 
@@ -81,7 +80,6 @@ const catalogo = {
         
         // Grupo $60
         { nombre: "Bubulubu", precio: 60 },
-        { nombre: "Ferrero", precio: 60 },
         { nombre: "Pay de Limón", precio: 60 }
     ]}, 
     gomyboing: {
