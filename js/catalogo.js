@@ -104,7 +104,7 @@ const catalogo = {
     cafe: {
         titulo: "SELECCIONA TU CAFÉ",
         precio: 30,
-        sabores: ["Clásico", "Chocolate", "Moka", "Vainilla"]
+        sabores: ["Clásico"]
     },
 
 };
