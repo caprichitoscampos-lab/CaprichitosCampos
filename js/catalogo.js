@@ -80,12 +80,13 @@ const catalogo = {
         
         // Grupo $60
         { nombre: "Bubulubu", precio: 60 },
-        { nombre: "Pay de Limón", precio: 60 }
+        { nombre: "Pay de Limón", precio: 60 }, 
+        { nombre: "Ferrero", precio: 60 }
     ]}, 
     gomyboing: {
         titulo: "PREPARA TU GOMYBOING",
         precio: 35, // Precio general
-        sabores: ["Ice Mora", "Ice cereza", "Mango"]},
+        sabores: ["Ice Mora", "Ice cereza", "Mango", "Guayaba", "Uva"]},
         chicharron: {
         titulo: "CHICHARRÓN PREPARADO",
         precio: 35
@@ -104,7 +105,7 @@ const catalogo = {
     cafe: {
         titulo: "SELECCIONA TU CAFÉ",
         precio: 30,
-        sabores: ["Clásico"]
+        sabores: ["Clásico", "Vainilla", "Chocolate", "Moka"]
     },
 
 };
