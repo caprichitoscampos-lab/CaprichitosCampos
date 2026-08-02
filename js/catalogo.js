@@ -1,7 +1,7 @@
 const catalogo = {
     productos: [
         "Crepas", "Waffles", "Frappé", "Papas a la francesa y Hamburguesas", 
-        "Gomyboing", "Chicharrón preparado", "Café", 
+        "Gomyboing", "Café", 
         "Maruchan", "Dorilocos", "Otros"
     ],
 
@@ -23,7 +23,7 @@ const catalogo = {
             { nombre: "Carnes Frias", precio: 50 },
             { nombre: "3 Quesos", precio: 40 }
         ],
-        frutas: ["Plátano", "Durazno", "Piña", "Fresa", "kiwi", "Cereza"],
+        frutas: ["Plátano", "Durazno", "Piña", "Cereza"],
         untables: ["Nutella", "Philadelphia", "Cajeta", "Lechera", "Mermelada de Fresa", "Crema pastelera"],
         toppings: ["Chispas de chocolate", "Chispas de colores", "Oreo", "Coco rallado", "Hershys Chocolate", "Hershys Fresa", "Maple", "Maple chicle", "Lunetas", "Bombón"],
         helados: ["Fresa"]
@@ -86,7 +86,7 @@ const catalogo = {
     gomyboing: {
         titulo: "PREPARA TU GOMYBOING",
         precio: 35, // Precio general
-        sabores: ["Ice Mora", "Ice cereza", "Mango", "Guayaba", "Uva"]},
+        sabores: ["Ice Mora", "Ice cereza", "Mango", "Guayaba", "Uva","fresa", "Piña", "Naranja"]},
         chicharron: {
         titulo: "CHICHARRÓN PREPARADO",
         precio: 35
@@ -99,7 +99,7 @@ const catalogo = {
     maruchan: {
         titulo: "SABOR DE LA MARUCHAN",
         precio: 25,
-        sabores: ["Camarón Limón y Chile", "Camarón con Chile Habanero", "Pollo", "Carne de Res"]
+        sabores: ["Camarón Limón y Chile", "Camarón con Chile Habanero", "Pollo"]
     },
 
     cafe: {
