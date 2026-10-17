@@ -33,7 +33,6 @@ if (prod === "Waffles") icono = "🧇";
 if (prod === "Frappé") icono = "🥤";
 if (prod === "Papas a la francesa y Hamburguesas") icono = "🍟";
 if (prod === "Gomyboing") icono = "🧋";
-if (prod === "Chicharrón preparado") icono = "🥓";
 if (prod === "Café") icono = "☕";
 if (prod === "Maruchan") icono = "🍜";
 if (prod === "Dorilocos") icono = "🍿";
@@ -66,9 +65,6 @@ btn.textContent = `${icono} ${prod}`;
                 }
                 else if (prod === "Gomyboing") {
                  iniciarGomyboing();
-                    }
-                    else if (prod === "Chicharrón preparado") {
-                 iniciarChicharron();
                     }
                     else if (prod === "Dorilocos") {
                     iniciarDorilocos();
@@ -496,42 +492,6 @@ function preguntarIngredientesGomy() {
     btnNo.style.backgroundColor = "#f8d7da";
     btnNo.onclick = () => {
         const sin = prompt("Especifica qué deseas RETIRAR (ej: sin miguelito, sin gomitas):");
-        if (sin) {
-            pedidoActual.ingredientes = [`TODO EXCEPTO: ${sin}`];
-        }
-        finalizarProducto();
-    };
-
-    contenido.appendChild(btnSi);
-    contenido.appendChild(btnNo);
-}
-function iniciarChicharron() {
-    // Definimos el pedido actual de inmediato porque solo hay un tipo de chicharrón
-    pedidoActual = { 
-        nombre: "Chicharrón Preparado", 
-        total: catalogo.chicharron.precio, 
-        ingredientes: ["Todo incluido"] 
-    };
-    
-    preguntarIngredientesChicharron();
-}
-
-function preguntarIngredientesChicharron() {
-    prepararPantalla("¿Deseas el Chicharrón Preparado con todos los ingredientes?");
-    historialPantallas.push(iniciarPedido);
-
-    // Botón SÍ
-    const btnSi = document.createElement("button");
-    btnSi.textContent = "SÍ (Con todo)";
-    btnSi.style.backgroundColor = "#d4edda";
-    btnSi.onclick = () => finalizarProducto();
-    
-    // Botón NO
-    const btnNo = document.createElement("button");
-    btnNo.textContent = "NO (Quitar algo)";
-    btnNo.style.backgroundColor = "#f8d7da";
-    btnNo.onclick = () => {
-        const sin = prompt("Especifica qué deseas RETIRAR (ej: sin cueritos, sin col, sin crema):");
         if (sin) {
             pedidoActual.ingredientes = [`TODO EXCEPTO: ${sin}`];
         }
