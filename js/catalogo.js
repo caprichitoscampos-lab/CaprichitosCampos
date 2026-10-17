@@ -87,7 +87,7 @@ const catalogo = {
     gomyboing: {
         titulo: "PREPARA TU GOMYBOING",
         precio: 35, // Precio general
-        sabores: ["Ice Mora", "Ice cereza", "Mango", "Guayaba", "Piña"]},
+        sabores: ["Ice Mora", "Ice cereza", "Mango", "Guayaba", "Piña"]
             },
     dorilocos: {
         titulo: "SELECCIONA TUS DORITOS / BOTANA",
