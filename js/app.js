@@ -654,7 +654,7 @@ function mostrarFormularioCliente() {
     // Si es menor a 200 muestra el aviso de $30, si es mayor o igual se queda vacío ""
     const mensajeEnvio = totalActual < 250 
         ? `<p style="color: #d9534f; font-weight: bold; margin-bottom: 15px;">
-            ⚠️ Tu orden es de $${totalActual}. Al ser menor a $200, se sumarán $30 de envío al finalizar.
+            ⚠️ Tu orden es de $${totalActual}. Al ser menor a $250, se sumarán $30 de envío al finalizar.
            </p>`
         : `<p style="color: #28a745; font-weight: bold; margin-bottom: 15px;">
             🎉 ¡Genial! Tu orden es de $${totalActual}. ¡Tu envío es GRATIS!
