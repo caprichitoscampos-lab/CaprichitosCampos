@@ -239,7 +239,7 @@ function renderCarrito() {
         // Contenedor para el texto del producto
         const spanTexto = document.createElement("span");
         spanTexto.style.flexGrow = "1";
-        spanTexto.innerHTML = `<b>${i+1}. ${item.nombre} ${item.tamano || ""} ${item.especialidad || ""}</b> - $${subtotalProducto} ${notes = notas}`;
+        spanTexto.innerHTML = `<b>${i+1}. ${item.nombre} ${item.tamano || ""} ${item.especialidad || ""}</b> - $${subtotalProducto} ${notas}`;
 
         // Contenedor para los botoncitos de cantidad (+ / -)
         const divCantidad = document.createElement("div");
